@@ -19,7 +19,7 @@ function Login() {
             <input
               type="email"
               id="email"
-              className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"
               placeholder="Enter your email"
             />
           </div>
@@ -35,7 +35,7 @@ function Login() {
             <input
               type="password"
               id="password"
-              className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray text-black"
               placeholder="Enter your password"
             />
           </div>
