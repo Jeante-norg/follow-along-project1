@@ -55,3 +55,25 @@ This milestone focuses on setting up the backend of the application, organizing 
          3. Configure Nodemailer: Nodemailer set up to send verification link via email.
          4. Verify Token and Activate User: Backend route validates token and activates user account.
 
+## Milestone 7
+
+        Created two routes signup and login
+
+        For Signup:
+
+        Take the data sent by the user
+        const {name, email, password} = req.body
+        check if user is already present in the DB
+        if Yes-> return saying user is already present, Direct Login
+
+        If No->
+        Hash the password (Bcrypt.js, argon2.js)
+        Create a user and store the name, email, password in DB
+        For Login:
+
+        Take the data sent const {email, password} = req.body
+        check if the user entry is present in DB also compare the password.
+        
+        If Yes-> create a token and send that as cookies
+        If No-> return saying Signup first
+
