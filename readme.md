@@ -48,4 +48,10 @@ This milestone focuses on setting up the backend of the application, organizing 
          2. Validation Object: Used RegEx for validating user inputs.
          3. React-Router: Enabled seamless navigation between app pages.
 
+## Milestone 6: User Email Verification with JWT
+
+         1. Generate a JWT Token: Token created with user details and expiration time.
+         2. Create a Verification Link: Token appended as query parameter to verification URL.
+         3. Configure Nodemailer: Nodemailer set up to send verification link via email.
+         4. Verify Token and Activate User: Backend route validates token and activates user account.
 
