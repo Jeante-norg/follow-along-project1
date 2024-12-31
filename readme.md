@@ -83,3 +83,10 @@ This milestone focuses on setting up the backend of the application, organizing 
 
         1. Created a reusable card component for products.
         2. Integrated the component with dummy product data.
+
+## Milestone 9 
+
+        Overview: Created a form for capturing product details.
+
+        1. Designed and implemented the product entry form.
+        2. Configured form to send data through a network call.
