@@ -77,3 +77,9 @@ This milestone focuses on setting up the backend of the application, organizing 
         If Yes-> create a token and send that as cookies
         If No-> return saying Signup first
 
+## Milestone 8
+
+        Overview: Displayed products using dummy data on the Home page.
+
+        1. Created a reusable card component for products.
+        2. Integrated the component with dummy product data.
