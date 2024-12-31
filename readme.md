@@ -35,3 +35,17 @@ This milestone focuses on setting up the backend of the application, organizing 
         5. Basic error handling implemented for smoother development.
         6. Backend folder structure created.
         7. Connected application to MongoDB for database operations.
+
+## Milestone 4: 
+
+         1. User Model: Defined schema for consistent user data storage.
+         2. Controllers: Handled user registration, login, and data fetching.
+         3. File Uploads: Used Multer for uploading files like images.
+         
+## Milestone 5: Creating the Signup page
+
+         1. Signup Page: Created user registration page with input fields.
+         2. Validation Object: Used RegEx for validating user inputs.
+         3. React-Router: Enabled seamless navigation between app pages.
+
+
