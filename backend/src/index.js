@@ -3,8 +3,8 @@ if (process.env.NODE_ENV !== 'PRODUCTION') {
     path: './src/config/.env',
   });
 }
-import connectDatabase from './DB/database.js';
-import app from './app.js';
+const connectDatabase = require('./DB/database.js');
+const app = require('./app.js');
 
 const PORT = process.env.PORT;
 

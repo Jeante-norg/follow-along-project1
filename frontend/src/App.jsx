@@ -1,5 +1,5 @@
-import LoginPage from './components/auth/Login';
-import SignupForm from './components/auth/Signup';
+import LoginPage from './component/auth/Login';
+import SignupForm from './component/auth/Signup';
 import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       {/* <LoginPage /> */}
       {/* <SignupForm /> */}
       <Routes>
-        <Route path="/" />
+        <Route path="/" element={<h1>Home Page</h1>} />
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
