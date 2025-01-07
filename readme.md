@@ -107,6 +107,10 @@ This milestone focuses on setting up the backend of the application, organizing 
 
 ## Milestone 12
 
+         1. Fetched products from the backend with axios using a get request.
+         2. useEffect() is used to load the products.
+         3. Used the card component to display the product with its details.
+
         
         
          
