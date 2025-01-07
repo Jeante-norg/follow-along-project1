@@ -20,7 +20,7 @@ const createProductController = async (req, res) => {
     quantity,
     category,
   } = req.body;
-
+  console.log(req.body);
   try {
     const arrayImage = req.files.map(async (singleFile, index) => {
       return cloudinary.uploader
@@ -57,6 +57,7 @@ const createProductController = async (req, res) => {
         success: false,
       });
     }
+    console.log(er.message);
 
     return res.status(500).send({ message: er.message, success: false });
   }

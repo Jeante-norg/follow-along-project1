@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { Upload } from 'lucide-react';
-import axios from 'axios';
+import React, { useState } from "react";
+import { Upload } from "lucide-react";
+import axios from "axios";
 function ProductEntryPage() {
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
+    title: "",
+    description: "",
     rating: 0,
     discountedPrice: 0,
     originalPrice: 0,
     quantity: 0,
-    category: '',
+    category: "",
   });
-  const [errorInput, setInputError] = useState('');
+  const [errorInput, setInputError] = useState("");
   const [Images, setImages] = useState(null);
 
   const handleImageUpload = (e) => {
@@ -20,7 +20,7 @@ function ProductEntryPage() {
     setImages(ImagesArray);
   };
   const handleChange = (e) => {
-    setInputError('');
+    setInputError("");
     const { name, value } = e.target;
     console.log(name, value);
     setFormData({
@@ -34,7 +34,7 @@ function ProductEntryPage() {
   //   setdata(...,[name]:value)
   // 2. take those images and store in another use state
   // 1. convert the all the image paths and set the state
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
     console.log(Images);
@@ -55,33 +55,52 @@ function ProductEntryPage() {
       quantity <= 0 ||
       category.length <= 0
     ) {
-      return setInputError('Enter The Information Inside Feilds Correctly...');
+      return setInputError("Enter The Information Inside Feilds Correctly...");
     }
     let formDataBody = new FormData();
-    formDataBody.append('title', title);
-    formDataBody.append('description', description);
-    formDataBody.append('category', category);
-    formDataBody.append('discountedPrice', discountedPrice);
-    formDataBody.append('originalPrice', originalPrice);
-    formDataBody.append('quantity', quantity);
-    formDataBody.append('rating', rating);
+    formDataBody.append("title", title);
+    formDataBody.append("description", description);
+    formDataBody.append("category", category);
+    formDataBody.append("discountedPrice", discountedPrice);
+    formDataBody.append("originalPrice", originalPrice);
+    formDataBody.append("quantity", quantity);
+    formDataBody.append("rating", rating);
 
     Images.map((ele) => {
-      formDataBody.append('filepath', ele);
+      formDataBody.append("filepath", ele);
     });
 
     console.log(formDataBody);
     // axios request post
-    axios.post('http://localhost:8080/product/create-product', formData, {
-      headers: {
-        'Content-Type': 'multi-part/form-data',
-      },
-    });
+    let requestdata = await axios
+      .post("http://localhost:8080/product/create-product", formDataBody, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        return res;
+      })
+      .catch((er) => {
+        console.log("error", er);
+        return er;
+      });
+
+    for (let pair of formDataBody.entries()) {
+      if (pair[1] instanceof File) {
+        console.log(
+          `${pair[0]}: File - ${pair[1].name}, ${pair[1].type}, ${pair[1].size} bytes`
+        );
+      } else {
+        console.log(`${pair[0]}: ${pair[1]}`);
+      }
+    }
   };
   return (
     <div
       className="flex justify-center items-center border border-black"
-      style={{ height: '100vh' }}
+      style={{ height: "100vh" }}
     >
       <form onSubmit={handleSubmit}>
         <div>
@@ -177,3 +196,13 @@ function ProductEntryPage() {
 }
 
 export default ProductEntryPage;
+
+/* 
+
+
+
+
+
+
+
+*/
