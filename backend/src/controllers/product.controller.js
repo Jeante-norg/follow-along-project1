@@ -89,16 +89,20 @@ const updateProductDataController = async (req, res) => {
     if (!checkIfProductExists) {
       return res.status(404).json({ message: "Product not found" });
     }
-    const arrayImage = req.files.map(async (singleFile, index) => {
-      return cloudinary.uploader
-        .upload(singleFile.path, {
-          folder: "uploads",
-        })
-        .then((result) => {
-          fs.unlinkSync(singleFile.path);
-          return result.url;
-        });
-    });
+    const arrayImage =
+      req.files &&
+      req.files?.map(async (singleFile, index) => {
+        return cloudinary.uploader
+          .upload(singleFile.path, {
+            folder: "uploads",
+          })
+          .then((result) => {
+            fs.unlinkSync(singleFile.path);
+            return result.url;
+          });
+      });
+    const ImageData = req.files && (await Promise.all(arrayImage));
+    const updatedImages = req.files ? ImageData : req.body.images;
     const findAndUpdate = await ProductModel.findByIdAndUpdate(
       { _id: id },
       {
@@ -109,7 +113,7 @@ const updateProductDataController = async (req, res) => {
         originalPrice,
         quantity,
         category,
-        images: ImageData,
+        images: updatedImages,
       },
       { new: true }
     );
