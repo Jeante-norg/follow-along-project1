@@ -111,6 +111,37 @@ This milestone focuses on setting up the backend of the application, organizing 
          2. useEffect() is used to load the products.
          3. Used the card component to display the product with its details.
 
+## Milestone 13
+
+         1.  Backend (PUT Route)
+         Purpose: Handle the update request for the data.
+         Functionality:
+         A PUT route is created to allow updates to data in the backend.
+         The route expects the updated data in the request body, except for images.
+         Upon a successful update, the backend returns a confirmation or the updated data.
+
+         2. Frontend (Page for Auto Filling)
+         Purpose: Automatically populate the data for the user to edit.
+         Functionality:
+         Fetch data from the backend using a GET request using the item's unique ID.
+         Populate the input fields with the fetched data, excluding image fields.
+         Allow the user to update values in the form and submit the changes.
+         Upon form submission, the updated data is sent to the backend using the PUT request.
+
+##Milestone 14
+
+         1. delete Route: in BackEnd : 
+         A delete route was created in the backend to handle the deletion of products from the database.
+         The route accepts the product ID as a parameter and deletes the corresponding product.
+         Proper error handling was implemented to ensure the product is deleted successfully or an appropriate error message is returned if the product is not found.
+
+         2. delete Button: in FrontEnd : 
+         A "Delete" button was added on the product detail or list page to trigger the deletion process.
+         The button is associated with a click event handler that sends a request to the backend DELETE route using the product's ID.
+
+         3. UI Update After Deletion:
+         After a successful deletion, the UI is updated to reflect the changes, such as removing the product from the displayed list.
+
         
         
          
