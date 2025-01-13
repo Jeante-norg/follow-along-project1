@@ -7,6 +7,7 @@ const {
   getProductDataController,
   updateProductDataController,
   getSingleProductDocumentController,
+  deleteSingleProduct,
 } = require("../controllers/product.controller.js");
 const router = express.Router();
 
@@ -25,5 +26,6 @@ router.put(
 );
 
 router.get("/get-single/:id", getSingleProductDocumentController);
+router.delete("/:id", deleteSingleProduct);
 
 module.exports = router;
