@@ -25,6 +25,8 @@ router.put(
   updateProductDataController
 );
 
+router.get("/get-products", getProductDataController);
+
 router.get("/get-single/:id", getSingleProductDocumentController);
 router.delete("/:id", deleteSingleProduct);
 
