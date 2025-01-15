@@ -1,10 +1,12 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import axios from "axios";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 function LoginPage() {
   const [credentials, setCreds] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
+  const navigate = useNavigate();
   const handleChange = (event) => {
     const { name, value } = event.target;
     console.log(name, value);
@@ -13,8 +15,12 @@ function LoginPage() {
       [name]: value,
     });
   };
-  const handleClickLogin = () => {
+  const handleClickLogin = async () => {
     // axios request to backend
+    const response = await axios.post("http://localhost:8080/user/login");
+    localStorage.setItem("token", response.data.token);
+    console.log(data);
+    navigate("/");
   };
 
   return (
@@ -31,7 +37,7 @@ function LoginPage() {
       </div>
 
       <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form class="space-y-6" action="#" method="POST">
+        <form class="space-y-6" onSubmit={handleClickLogin}>
           <div>
             <label
               for="email"
@@ -92,7 +98,7 @@ function LoginPage() {
             </button>
           </div>
           <p className="text-center">
-            Don't have an account ? <Link to={'/signup'}>Sign up</Link>
+            Don't have an account ? <Link to={"/signup"}>Sign up</Link>
           </p>
         </form>
       </div>

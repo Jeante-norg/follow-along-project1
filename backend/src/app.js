@@ -8,9 +8,10 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
     path: "./src/config/.env",
   });
 }
-
+const cookieParser = require("cookie-parser");
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
   return res.send("Welcome to backend");

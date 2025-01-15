@@ -9,11 +9,13 @@ const {
   getSingleProductDocumentController,
   deleteSingleProduct,
 } = require("../controllers/product.controller.js");
+const { verifyUserController } = require("../controllers/user.controller.js");
 const router = express.Router();
 
 router.post(
   "/create-product",
   upload.array("files", 5),
+  verifyUserController,
   createProductController
 );
 

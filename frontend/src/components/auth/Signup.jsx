@@ -1,43 +1,69 @@
-import React, { useState } from 'react';
-import ValidationFormObject from '../../validation.js';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import ValidationFormObject from "../../validation.js";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 function SignupForm() {
   const [data, setData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    file: '',
+    name: "",
+    email: "",
+    password: "",
+    file: "",
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   // name
   // pass
   // email
+  const navigateUser = useNavigate();
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData({
-      ...data,
-      [name]: value,
-    });
+    const { name, value, files } = e.target;
+    if (name == "file") {
+      setData({
+        ...data,
+        [name]: files[0],
+      });
+    } else {
+      setData({
+        ...data,
+        [name]: value,
+      });
+    }
+
     // console.log(data);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const NameV = ValidationFormObject.validteName(data.name);
     const EmailV = ValidationFormObject.validteEmail(data.email);
     const PassV = ValidationFormObject.validtePass(data.password);
 
-    if (typeof NameV == 'string' && NameV.length > 1) {
+    if (typeof NameV == "string" && NameV.length > 1) {
       return setError(NameV);
     }
-    if (typeof EmailV == 'string' && EmailV.length > 2) {
+    if (typeof EmailV == "string" && EmailV.length > 2) {
       return setError(EmailV);
     }
-    if (typeof PassV == 'string' && PassV.length > 2) {
+    if (typeof PassV == "string" && PassV.length > 2) {
       return setError(PassV);
     }
-    setError('');
+    setError("");
     // axios request
+    const formDataBody = new FormData();
+    formDataBody.append("email", data.email);
+    formDataBody.append("password", data.password);
+    formDataBody.append("name", data.name);
+    formDataBody.append("file", data.file);
+    try {
+      await axios.post("http://localhost:8080/user/signup", formDataBody, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      //take him to login page
+      navigateUser("/login");
+    } catch (er) {
+      console.log("Something wrong happened" + er.message);
+    }
   };
 
   return (
@@ -139,7 +165,7 @@ function SignupForm() {
         </button>
 
         <p className="text-center">
-          Already have an account ? <Link to={'/login'}>Login</Link>
+          Already have an account ? <Link to={"/login"}>Login</Link>
         </p>
       </form>
     </div>
