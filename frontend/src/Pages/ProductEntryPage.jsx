@@ -74,7 +74,7 @@ function ProductEntryPage() {
     console.log(formDataBody);
     // axios request post
     let requestdata = await axios
-      .post("http://localhost:8080/product/create-product", formDataBody, {
+      .post("http://localhost:8000/product/create-product", formDataBody, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
