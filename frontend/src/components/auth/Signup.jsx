@@ -54,7 +54,7 @@ function SignupForm() {
     formDataBody.append("name", data.name);
     formDataBody.append("file", data.file);
     try {
-      await axios.post("http://localhost:8080/user/signup", formDataBody, {
+      await axios.post("http://localhost:8000/user/signup", formDataBody, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

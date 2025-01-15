@@ -15,11 +15,15 @@ function LoginPage() {
       [name]: value,
     });
   };
-  const handleClickLogin = async () => {
+  const handleClickLogin = async (e) => {
     // axios request to backend
-    const response = await axios.post("http://localhost:8080/user/login");
+    e.preventDefault();
+    const response = await axios.post(
+      "http://localhost:8000/user/login",
+      credentials
+    );
     localStorage.setItem("token", response.data.token);
-    console.log(data);
+    console.log(response);
     navigate("/");
   };
 
