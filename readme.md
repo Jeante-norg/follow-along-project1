@@ -16,12 +16,12 @@ the website will contain the following things :
 Frontend and Backend were set up as a task during this assignement :
 
          1. Frontend was set up using React app and Tailwind CSS was configured for styling.
-         2. A Node.js server was set up for the backend. 
-         3. Required dependencies including Cors (for cross-origin requests), ExpressJs (for building webservers and API) & 
+         2. A Node.js server was set up for the backend.
+         3. Required dependencies including Cors (for cross-origin requests), ExpressJs (for building webservers and API) &
              Mongoose (for schema-based data modeling) were installed.
          4. Nodemon was installed as a developer dependency.
-         5. A login page was created as a functional component marking the first client-side user interface created for the project. 
-         Tailwind CSS was used to style the page. 
+         5. A login page was created as a functional component marking the first client-side user interface created for the project.
+         Tailwind CSS was used to style the page.
          6. A structured folder hierarchy was created for the frontend and backend sides of the project making it organised.
 
 ## Milestone 3: Backend Setup and MongoDB Integration
@@ -41,7 +41,7 @@ This milestone focuses on setting up the backend of the application, organizing 
          1. User Model: Defined schema for consistent user data storage.
          2. Controllers: Handled user registration, login, and data fetching.
          3. File Uploads: Used Multer for uploading files like images.
-         
+
 ## Milestone 5: Creating the Signup page
 
          1. Signup Page: Created user registration page with input fields.
@@ -58,36 +58,36 @@ This milestone focuses on setting up the backend of the application, organizing 
 ## Milestone 7
 
          Created two routes signup and login
-         
+
          For Signup:
-         
+
          Take the data sent by the user
          const {name, email, password} = req.body
          check if user is already present in the DB
          if Yes-> return saying user is already present, Direct Login
-         
+
          If No->
          Hash the password (Bcrypt.js, argon2.js)
          Create a user and store the name, email, password in DB
          For Login:
-         
+
          Take the data sent const {email, password} = req.body
          check if the user entry is present in DB also compare the password.
-         
+
          If Yes-> create a token and send that as cookies
          If No-> return saying Signup first
 
 ## Milestone 8
 
          Overview: Displayed products using dummy data on the Home page.
-         
+
          1. Created a reusable card component for products.
          2. Integrated the component with dummy product data.
 
-## Milestone 9 
+## Milestone 9
 
          Overview: Created a form for capturing product details.
-         
+
          1. Designed and implemented the product entry form.
          2. Configured form to send data through a network call.
 
@@ -130,12 +130,12 @@ This milestone focuses on setting up the backend of the application, organizing 
 
 ## Milestone 14
 
-         1. delete Route: in BackEnd : 
+         1. delete Route: in BackEnd :
          A delete route was created in the backend to handle the deletion of products from the database.
          The route accepts the product ID as a parameter and deletes the corresponding product.
          Proper error handling was implemented to ensure the product is deleted successfully or an appropriate error message is returned if the product is not found.
 
-         2. delete Button: in FrontEnd : 
+         2. delete Button: in FrontEnd :
          A "Delete" button was added on the product detail or list page to trigger the deletion process.
          The button is associated with a click event handler that sends a request to the backend DELETE route using the product's ID.
 
@@ -161,6 +161,14 @@ This milestone focuses on setting up the backend of the application, organizing 
          Each product is displayed with essential details including Product Name, price, description and category.
          The data for each product is rendered in a loop using .map() to ensure scalability, allowing the addition of more products in the future without changing the component structure.
 
-        
-        
-         
+## Milestone 17
+
+        1. Cart Schema:
+        Defines the structure of the cart in the database, including the items and user details.
+
+        2. Cart Routes:
+        /get-user-cart-data: Fetches the current user's cart details.
+
+        3. Cart Controller:
+        GetProductsForUser: Handles fetching the cart data for the authenticated user.
+        addToCart: Handles adding products to the user's cart, ensuring the item is available and the quantity is updated accordingly.
