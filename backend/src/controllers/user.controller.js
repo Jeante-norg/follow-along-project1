@@ -44,7 +44,7 @@ async function CreateUSer(req, res) {
   const token = generateToken(data);
   await transporter.sendMail({
     to: "jupitersorbeet@gmail.com",
-    from: "jupitersorbeet@gmail.com",
+    from: "tejasphthomas29@gmail.com",
     subject: "verification email from follow along project",
     text: "Text",
     html: `<h1>Hello world   http://localhost:5173/activation/${token} </h1>`,
@@ -62,7 +62,7 @@ async function CreateUSer(req, res) {
 const generateToken = (data) => {
   // jwt
   const token = jwt.sign(
-    { name: data.name, email: data.email },
+    { name: data.name, email: data.email, id: data.id },
     process.env.SECRET_KEY
   );
   return token;
