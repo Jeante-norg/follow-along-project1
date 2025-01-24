@@ -51,7 +51,8 @@ async function GetProductsForUser(req, res) {
     if (!checkUserPresent) {
       return res.status(401).send({ message: "Un-Authorized Please signup" });
     }
-    const data = await CartModel.find({ userId });
+    const data = await CartModel.find({ userId }).populate("productId");
+    // const data = await CartModel.find({ userId });
     return res.status(200).send({
       message: "Data successfully fetched",
       success: true,
