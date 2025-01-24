@@ -172,3 +172,17 @@ This milestone focuses on setting up the backend of the application, organizing 
         3. Cart Controller:
         GetProductsForUser: Handles fetching the cart data for the authenticated user.
         addToCart: Handles adding products to the user's cart, ensuring the item is available and the quantity is updated accordingly.
+
+## Milestone 18
+
+## Milestone 19
+
+        1. Cart UI:
+        A user interface displaying the cart items.
+        Allows users to view cart contents.
+
+        2. Fetching Cart Details:
+        Retrieves the current cart details for the user.
+        Displays relevant information like item names, quantities and prices.
+
+
