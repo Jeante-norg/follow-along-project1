@@ -1,23 +1,37 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    Name: { type: String, require: [true, 'Please Enter the Name...'] },
+    Name: { type: String, require: [true, "Please Enter the Name..."] },
     email: {
       type: String,
-      require: [true, 'Please Enter Email.. '],
-      unique: [true, 'Please enter Unique Email Address'],
+      require: [true, "Please Enter Email.. "],
+      unique: [true, "Please enter Unique Email Address"],
     },
-    password: { type: String, require: [true, 'Please enter the password...'] },
+    password: { type: String, require: [true, "Please enter the password..."] },
     address: [
-      { city: String },
-      { country: String },
-      { add1: String },
-      { add2: String },
-      { zipCode: String },
-      { addressType: String },
+      {
+        country: {
+          type: String,
+        },
+        city: {
+          type: String,
+        },
+        add1: {
+          type: String,
+        },
+        add2: {
+          type: String,
+        },
+        zipCode: {
+          type: Number,
+        },
+        addressType: {
+          type: String,
+        },
+      },
     ],
-    role: { type: String, default: 'user' },
+    role: { type: String, default: "user" },
     avatar: {
       url: { type: String, require: true },
       public_id: { type: String, require: true },
@@ -28,6 +42,6 @@ const userSchema = new mongoose.Schema(
   { versionKey: false }
 );
 
-const UserModel = mongoose.model('User', userSchema);
+const UserModel = mongoose.model("User", userSchema);
 
 module.exports = UserModel;

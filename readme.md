@@ -206,3 +206,11 @@ This milestone focuses on setting up the backend of the application, organizing 
         Address Line 2
         ZipCode
         Address Type (Home, Work, Billing)
+
+## Milestone 22
+
+        1. Create route and display address:
+        Created a route (/add-address) for users to add a new address.
+        After filling in address details, users are redirected back to the profile page.
+        Display the added address on the profile page.
+        Added an option for users to delete addresses from their profile.
