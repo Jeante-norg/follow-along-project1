@@ -21,6 +21,7 @@ const InfoSection = ({ icon, label, value }) => (
     </div>
   </div>
 );
+
 export function ProfileCard() {
   const [userData, setUserData] = useState({});
   useEffect(() => {
@@ -30,13 +31,28 @@ export function ProfileCard() {
         return alert("Token missing login");
       }
       const response = await axios.get(
-        `http://localhost:8080/user/user-data?token=${token}`
+        `http://localhost:8000/user/user-data?token=${token}`
       );
 
       setUserData(response.data.data);
     };
     getUserData();
   }, []);
+
+  const handleDeleteAddy = async (id) => {
+    const token = localStorage.getItem("token");
+    try {
+      if (!token) {
+        return alert("Token missing");
+      }
+      const response = await axios.delete(
+        `http://localhost:8000/user/delete-address/${id}?token=${token}`
+      );
+      getUserData();
+    } catch (er) {
+      console.log(er.response.message);
+    }
+  };
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <Card className="max-w-2xl mx-auto">
@@ -137,9 +153,19 @@ export function ProfileCard() {
             value={
               userData?.address?.length > 0 ? (
                 <ul className="list-disc list-inside">
-                  {/* {userData.address.map((addr, index) => (
-                      <li key={index}>{addr}</li>
-                    ))} */}
+                  {userData.address.map((SingleAddy, index) => (
+                    <>
+                      <button onClick={() => handleDeleteAddy(SingleAddy._id)}>
+                        Delete 👇🏻
+                      </button>
+                      <li key={index}>City: {SingleAddy.city}</li>
+                      <li key={index}>Country: {SingleAddy.country}</li>
+                      <li key={index}>Address 1: {SingleAddy.add1}</li>
+                      <li key={index}>Address 2: {SingleAddy.add2}</li>
+                      <li key={index}>Pin Code: {SingleAddy.zipCode}</li>
+                      <br />
+                    </>
+                  ))}
                 </ul>
               ) : (
                 <span className="text-gray-400 italic">
