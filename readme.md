@@ -214,3 +214,11 @@ This milestone focuses on setting up the backend of the application, organizing 
         After filling in address details, users are redirected back to the profile page.
         Display the added address on the profile page.
         Added an option for users to delete addresses from their profile.
+
+## Milestone 23
+
+        1. Added a "Place Order" button in the cart to navigate to the "Select Address" page.
+        2. Created a "Select Address" page to display and select delivery addresses.
+        3. Built a backend endpoint to fetch user addresses.
+        4. Defined a Mongoose schema to store order details.
+        5. Implemented functionality to save orders with a "Pending" status.
