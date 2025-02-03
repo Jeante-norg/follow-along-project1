@@ -222,3 +222,16 @@ This milestone focuses on setting up the backend of the application, organizing 
         3. Built a backend endpoint to fetch user addresses.
         4. Defined a Mongoose schema to store order details.
         5. Implemented functionality to save orders with a "Pending" status.
+
+## Milestone 24
+
+        1. Displayed All Ordered Products:
+        Implemented functionality to display all the products that the user is ordering.
+        Ensured that each product is shown with its details in the order summary.
+        2. Displayed Selected Delivery Address:
+        Displayed the address that the user selected for delivery during checkout.
+        3. Displayed Total Value of the Cart:
+        Calculated and displayed the total price of products in the cart.
+        Updated the total dynamically based on the items in the cart.
+        4. Added Confirm Order Button:
+        Included a Confirm Order button at the bottom of the summary page.
