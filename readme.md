@@ -235,3 +235,17 @@ This milestone focuses on setting up the backend of the application, organizing 
         Updated the total dynamically based on the items in the cart.
         4. Added Confirm Order Button:
         Included a Confirm Order button at the bottom of the summary page.
+
+## Milestone 25
+
+         1. Create an Order Endpoint:
+         Design an endpoint to receive product, user, and address details.
+         Validate the request and ensure proper format for all input fields.
+         2. JWT Authentication:
+         Verify the user’s token using JWT to authenticate the request.
+         If the token is invalid or missing, return an appropriate error message.
+         3. Handle Multiple Products:
+         Ensure that each product in the order has unique details but share the same address.
+         4. Create Order Schema:
+         created Schema for Order
+         Include relevant information such as product details, user, and shipping address in the order schema.
