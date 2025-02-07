@@ -10,5 +10,5 @@ const PORT = process.env.PORT;
 
 const server = app.listen(PORT, async () => {
   connectDatabase();
-  console.log("The Server is running on Port:8080 URL: http://localhost:8000");
+  console.log("The Server is running on Port:8000 URL: http://localhost:8000");
 });
